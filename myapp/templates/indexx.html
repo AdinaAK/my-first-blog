@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Добавить медикамент</title>
+    <style>
+     body{
+    background-color: #ffffff ;
+    text-align: center;
+    }
+    .meds {
+    width: 600px;
+    position: static;
+    background: #eee;
+    overflow-x: hidden;
+    margin-left: 50px;
+    margin-top: 50px;
+    text-align:center;
+    margin: 0 auto;
+    }
+    .table {
+    text-align: center;
+    margin-left: 150px;
+
+
+
+}
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="meds">
+     <form method="POST" action="create/">
+        {% csrf_token %}
+        <p>
+            <label>Медикамент:</label><br>
+            <input type="text" name="que1" />
+        </p>
+         <p>
+            <label>Исходная дозировка препарата(мг):</label><br>
+            <input type="number" name="que2" />
+        </p>
+          <p>
+            <label>Способ введения:</label><br>
+            <input type="text" name="que3" />
+        </p>
+         <p>
+            <label>Дата начала приема:</label><br>
+            <input type="date" name="que4" />
+        </p>
+         <p>
+            <label>Время приема:</label><br>
+            <input type="time" name="que5" />
+        </p>
+         <p>
+            <label>На сколько дней назначено:</label><br>
+            <input type="number" name="que6" />
+        </p>
+         <p>
+            <label>Комментарий:</label><br>
+            <input type="text" name="que7" />
+        </p>
+        <input type="submit" value="Сохранить" >
+
+    </form>
+</div>
+<div class="table">
+    {% if drugs.count > 0 %}
+    <h2>Saved meds</h2>
+    <table>
+        <thead>
+        <th>Id</th><th>Медикамент</th><th>Исходная дозировка препарата</th><th>Способ введения</th><th>Дата начала приема</th><th>Время приема</th><th>На сколько дней назначено</th><th>Комментарий</th>
+        </thead>
+        {% for DrugList in drugs %}
+        <tr>
+            <td>{{DrugList.id}}</td>
+            <td>{{DrugList.que1}}</td>
+            <td>{{DrugList.que2}}</td>
+            <td>{{DrugList.que3}}</td>
+            <td>{{DrugList.que4}}</td>
+            <td>{{DrugList.que5}}</td>
+            <td>{{DrugList.que6}}</td>
+            <td>{{DrugList.que7}}</td>
+            <td> <a href="edit/{{DrugList.id}}">Изменить</a> |
+                 <a href="delete/{{DrugList.id}}">Удалить</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+</body>
+</html>

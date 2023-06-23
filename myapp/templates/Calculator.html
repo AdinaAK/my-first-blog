@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    .calculator {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+    }
+
+    .input-field {
+      width: 100%;
+      height: 50px;
+      font-size: 18px;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .grid-item {
+      width: 100%;
+      height: 50px;
+      font-size: 18px;
+      text-align: center;
+      background-color: #f0f0f0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .grid-item:hover {
+      background-color: #d3d3d3;
+    }
+
+    .eval {
+      background-color: #ffcc00;
+      color: #fff;
+    }
+
+    .eval:hover {
+      background-color: #f0b400;
+    }
+
+    .operator {
+      background-color: #0099ff;
+      color: #fff;
+    }
+
+    .operator:hover {
+      background-color: #0077cc;
+    }
+    .text {
+
+  text-align: center;
+
+
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="inputField" class="input-field" readonly>
+    <div class="grid-container">
+      <button class="grid-item" onclick="appendToInput('1')">1</button>
+      <button class="grid-item" onclick="appendToInput('2')">2</button>
+      <button class="grid-item" onclick="appendToInput('3')">3</button>
+      <button class="grid-item operator" onclick="appendToInput('*')">*</button>
+      <button class="grid-item" onclick="appendToInput('4')">4</button>
+      <button class="grid-item" onclick="appendToInput('5')">5</button>
+      <button class="grid-item" onclick="appendToInput('6')">6</button>
+      <button class="grid-item operator" onclick="appendToInput('/')">/</button>
+      <button class="grid-item" onclick="appendToInput('7')">7</button>
+      <button class="grid-item" onclick="appendToInput('8')">8</button>
+      <button class="grid-item" onclick="appendToInput('9')">9</button>
+      <button class="grid-item operator" onclick="appendToInput('+')">+</button>
+      <button class="grid-item" onclick="appendToInput('.')">.</button>
+      <button class="grid-item" onclick="appendToInput('0')">0</button>
+      <button class="grid-item" onclick="appendToInput('()')">()</button>
+      <button class="grid-item operator" onclick="appendToInput('-')">-</button>
+      <button class="grid-item operator" onclick="clearInput()">C</button>
+      <button class="grid-item eval" onclick="evaluateExpression()">=</button>
+    </div>
+  </div>
+<script>
+    function appendToInput(value) {
+      document.getElementById('inputField').value += value;
+    }
+
+    function clearInput() {
+      document.getElementById('inputField').value = '';
+    }
+
+    function evaluateExpression() {
+      let inputField = document.getElementById('inputField');
+      let expression = inputField.value;
+      let result;
+
+      try {
+        result = eval(expression);
+        if (isNaN(result)) {
+          inputField.value = 'Error';
+        } else {
+          inputField.value = result;
+        }
+      } catch (error) {
+        inputField.value = 'Error';
+      }
+    }
+</script>
+
+  <div class="text">
+<h1>Напоминание!</h1>
+<p> Перед рассчетом дозировки препарата обязательно ознакомьтесь с инструкцией, прилагаемой к медикаменту.<p>
+<p> Учтите показания и противопоказания, а также возможные побочные эффекты.</p>
+<p> Соблюдайте рекомендованный интервал приема медикаментов, не превышайте допустимую разовую и суточную дозу.</p>
+    </div>
+</body>
+</html>
+

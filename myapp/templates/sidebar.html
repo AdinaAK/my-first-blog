@@ -1,0 +1,72 @@
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 20px;
+  left: 10px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2196F3;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+.main {
+  margin-left: 300px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+
+<div class="sidenav" >
+  <a href="{% url 'account' %}" class="btn btn-primary">Аккаунт</a>
+  <a href="{% url 'about' %}" class="btn btn-primary">О медикаментах</a>
+  <a href="{% url 'drugs' %}" class="btn btn-primary">Добавить медикамент</a>
+  <a href="{% url 'calendar' %}" class="btn btn-primary">Календарь</a>
+  <a href="{% url 'calculator' %}" class="btn btn-primary">Калькулятор</a>
+  <a href="{% url 'logout' %}" class="btn btn-primary">Выход</a>
+</div>
+
+
+<div class="main">
+  <h2>Добро пожаловать!</h2>
+  <p>Данное веб-приложение было разработано с целью обеспечения адекватного ведения лечения на этапе как активного ведения пациента, так и в период реабилитации и профилактики рецидивов и осложнений.  </p>
+  <p>Какое решение мы предлагаем для вас:</p>
+  <p>	Больше нет необходимости в запоминании множеств лекарств на разных листках назначений от различных врачей;</p>
+  <p>	Вы всегда можете посмотреть какие медикаменты вы принимали и в какой отрезок времени;</p>
+  <p>	Указывайте в комментариях к назначению реакцию своего организма, чтобы знать о возможных нежелательных реакциях и сообщить о них лечащему врачу;</p>
+  <p>	Внесите медикамент по времени приема в календарь и отслеживайте своевременный прием для большей эффективности лечения.</p>
+  <p>Создавайте приверженность к лечению вместе с нами!</p>
+
+
+</div>
+
+</body>
+</html>

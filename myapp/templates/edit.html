@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>METANIT.COM</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>Медикамент:</label><br>
+            <input type="text" name="que1" value="{{drugscr.que1}}" />
+        </p>
+        <p>
+            <label>Исходная дозировка препарата:</label><br>
+            <input type="number" name="que2" value="{{drugscr.que2}}" />
+        </p>
+        <p>
+            <label>Способ введения:</label><br>
+            <input type="text" name="que3" value="{{drugscr.que3}}" />
+        </p>
+        <p>
+            <label>Дата начала приема:</label><br>
+            <input type="date" name="que4" value="{{drugscr.que4}}" />
+        </p>
+        <p>
+            <label>Время приема:</label><br>
+            <input type="time" name="que5" value="{{drugscr.que5}}" />
+        </p>
+        <p>
+            <label>На сколько дней назначено:</label><br>
+            <input type="number" name="que6" value="{{drugscr.que6}}" />
+        </p>
+        <p>
+            <label>Комментарий:</label><br>
+            <input type="text" name="que7" value="{{drugscr.que7}}" />
+        </p>
+        <input type="submit" value="Сохранить" >
+    </form>
+</body>
+</html>
